@@ -70,8 +70,8 @@
     /* Navigation tabs */
     .tabs {
       display: flex;
-      gap: 8px;
-      padding: 16px 16px 8px;
+      gap: 6px;
+      padding: 16px 12px 8px;
       position: sticky;
       top: 88px;
       background: var(--bg);
@@ -80,21 +80,30 @@
 
     .tab {
       flex: 1;
-      padding: 12px;
+      padding: 10px 6px;
       border: none;
       border-radius: 12px;
       background: var(--card);
       color: var(--text-muted);
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.78rem;
+      line-height: 1.25;
       cursor: pointer;
       transition: all 0.25s ease;
+      text-align: center;
     }
 
     .tab.active {
       background: var(--primary);
       color: white;
       box-shadow: 0 4px 16px rgba(230, 57, 70, 0.35);
+    }
+
+    @media (min-width: 480px) {
+      .tab {
+        font-size: 0.9rem;
+        padding: 12px 8px;
+      }
     }
 
     /* Sections */
@@ -379,6 +388,7 @@
   <div class="tabs">
     <button class="tab active" data-tab="articulos">Artículos</button>
     <button class="tab" data-tab="servicios">Servicios</button>
+    <button class="tab" data-tab="trabajar">¿Trabajar con nosotros?</button>
   </div>
 
   <!-- ARTÍCULOS -->
@@ -394,6 +404,23 @@
     <div class="section-title"><span></span> Nuestros servicios</div>
     <div class="grid" id="grid-servicios">
       <!-- Cards inserted by JS -->
+    </div>
+  </section>
+
+  <!-- TRABAJAR CON NOSOTROS -->
+  <section id="trabajar" class="section">
+    <div class="section-title"><span></span> ¿Te interesa trabajar con nosotros?</div>
+    
+    <div style="background: var(--card); border-radius: var(--radius); border: 1px solid #2a2a2a; padding: 24px 20px; margin-top: 8px;">
+      <p style="font-size: 1.05rem; font-weight: 600; margin-bottom: 16px; line-height: 1.5; color: var(--text);">
+        Hola, ¿te interesa trabajar con nosotros el taller Quintana como gestor de ventas de nuestros productos con generosas comisiones? Contáctenos ahora para explicarte el proceso.
+      </p>
+      
+      <a href="https://wa.me/5356190396?text=Hola%20me%20interesa%20trabajar%20como%20gestor%20de%20ventas%20de%20sus%20productos%2C%20%C2%BFpodr%C3%ADa%20explicarme%20c%C3%B3mo%20ser%C3%ADa%20el%20proceso%3F" 
+         target="_blank" rel="noopener"
+         style="display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:16px; background:#e63946; color:white; font-size:1.1rem; font-weight:700; border:none; border-radius:14px; text-decoration:none; box-shadow:0 6px 20px rgba(230,57,70,0.4);">
+        ¡Contactar ahora!
+      </a>
     </div>
   </section>
 
