@@ -254,7 +254,7 @@
       width: 100%;
       max-width: 480px;
       border-radius: 24px 24px 0 0;
-      padding: 24px 20px 32px;
+      padding: 24px 20px 0;
       transform: translateY(100%);
       transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
       max-height: 85vh;
@@ -337,6 +337,15 @@
       text-decoration: none;
       transition: background 0.2s, transform 0.15s;
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      margin-top: 16px;
+      margin-bottom: 0;
+      /* Fondo sólido para que no se vea el contenido detrás al hacer scroll */
+      box-shadow: 0 -12px 24px var(--card), 0 6px 20px rgba(37, 211, 102, 0.35);
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      border-radius: 14px 14px 0 0;
     }
 
     .btn-whatsapp:active {
@@ -555,6 +564,151 @@
         </div>
       </div>
 
+      <!-- Opciones Chapas Personalizadas - Nuestros Diseños -->
+      <div id="opciones-chapas" style="display:none; margin-bottom: 20px;">
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px; font-weight:600;">Nuestros Diseños:</p>
+        <div style="display:grid; grid-template-columns: 1fr; gap:12px;">
+          <div class="chapa-card" data-chapa="Te Veo Lento Caracol" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-te-veo-lento-caracol.jpg" alt="Te Veo Lento Caracol" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;">
+              <div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Te Veo Lento Caracol</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Te%20Veo%20Lento%20Caracol" target="_blank" rel="noopener"
+                 style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px; background:#25D366; color:white; font-size:0.95rem; font-weight:700; border:none; border-radius:12px; text-decoration:none; box-shadow:0 4px 14px rgba(37,211,102,0.35);">
+                Pedir este modelo por WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="El Que Envidia No Progresa Care Chimba" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-el-que-envidia.jpg" alt="El Que Envidia No Progresa Care Chimba" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;">
+              <div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">El Que Envidia No Progresa Care Chimba</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20El%20Que%20Envidia%20No%20Progresa%20Care%20Chimba" target="_blank" rel="noopener"
+                 style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px; background:#25D366; color:white; font-size:0.95rem; font-weight:700; border:none; border-radius:12px; text-decoration:none; box-shadow:0 4px 14px rgba(37,211,102,0.35);">
+                Pedir este modelo por WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Tengo Cara De Yo No Fui" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-yo-no-fui.jpg" alt="Tengo Cara De Yo No Fui" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;">
+              <div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Tengo Cara De Yo No Fui</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Tengo%20Cara%20De%20Yo%20No%20Fui" target="_blank" rel="noopener"
+                 style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px; background:#25D366; color:white; font-size:0.95rem; font-weight:700; border:none; border-radius:12px; text-decoration:none; box-shadow:0 4px 14px rgba(37,211,102,0.35);">
+                Pedir este modelo por WhatsApp
+              </a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="No Hay Loco Que No Corone (Mario)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-no-hay-loco-mario.jpg" alt="No Hay Loco Que No Corone Mario" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">No Hay Loco Que No Corone (Mario)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20No%20Hay%20Loco%20Que%20No%20Corone%20Mario" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="No Hay Loco Que No Corone (Goodyear)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-no-hay-loco-goodyear.jpg" alt="No Hay Loco Que No Corone Goodyear" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">No Hay Loco Que No Corone (Goodyear)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20No%20Hay%20Loco%20Que%20No%20Corone%20Goodyear" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Vívela Que Es Prestada" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-vivela-que-es-prestada.jpg" alt="Vívela Que Es Prestada" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Vívela Que Es Prestada</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20V%C3%ADvela%20Que%20Es%20Prestada" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Bandido Suelto!! (Monster)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-bandido-suelto-monster.jpg" alt="Bandido Suelto Monster" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Bandido Suelto!! (Monster)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Bandido%20Suelto%20Monster" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Bandido Suelto!! (Duck)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-bandido-suelto-duck.jpg" alt="Bandido Suelto Duck" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Bandido Suelto!! (Duck)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Bandido%20Suelto%20Duck" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Advertencia (Monster)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-advertencia-monster.jpg" alt="Advertencia Monster" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Advertencia No Trate De Adelantar (Monster)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Advertencia%20Monster" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Advertencia (Goodyear)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-advertencia-goodyear.jpg" alt="Advertencia Goodyear" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Advertencia No Trate De Adelantar (Goodyear)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Advertencia%20Goodyear" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Advertencia (Flames)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-advertencia-flames.jpg" alt="Advertencia Flames" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Advertencia No Trate De Adelantar (Flames)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Advertencia%20Flames" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Gasolina y Mujeres" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-gasolina-y-mujeres.jpg" alt="Gasolina y Mujeres" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Gasolina y Mujeres Siempre Hay Que Tener De Reserva</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Gasolina%20y%20Mujeres" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="X100 Que Feas No" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-que-feas-no-x100.jpg" alt="X100 Que Feas No" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">X100 Mi Mamá Me Dijo ¡Que Feas No! O Me Quita La Moto</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20X100%20Que%20Feas%20No" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Monster Que Feas No" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-que-feas-no-monster.jpg" alt="Monster Que Feas No" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Monster Mi Mamá Me Dijo ¡Que Feas No! O Me Quita La Moto</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Monster%20Que%20Feas%20No" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="De Tu Envidia Nace Mi Fama" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-de-tu-envidia.jpg" alt="De Tu Envidia Nace Mi Fama" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">De Tu Envidia Nace Mi Fama</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20De%20Tu%20Envidia%20Nace%20Mi%20Fama" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Fruto Prohibido Casado" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-fruto-prohibido.jpg" alt="Fruto Prohibido" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Fruto Prohibido Casado Mantenga Su Distancia</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Fruto%20Prohibido%20Casado" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Esta Nave No Ve Luces Trasera" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-esta-nave-no-ve.jpg" alt="Esta Nave No Ve Luces Trasera" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Esta Nave No Ve Luces Trasera</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Esta%20Nave%20No%20Ve%20Luces%20Trasera" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Te Mandamos En Uber Si No Singas" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-te-mandamos-en-uber.jpg" alt="Te Mandamos En Uber" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Te Mandamos En Uber Si No Singas...</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Te%20Mandamos%20En%20Uber%20Si%20No%20Singas" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Estas Toketia Manosia (Labios)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-estas-toketia-labios.jpg" alt="Estas Toketia Manosia Labios" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Estas Toketia Manosia Y Utiliza (Labios)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Estas%20Toketia%20Manosia%20Y%20Utiliza" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Estas Toketia Manosia (Rubia)" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-estas-toketia-rubia.jpg" alt="Estas Toketia Manosia Rubia" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Estas Toketia Manosia Y Utiliza (Rubia)</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Estas%20Toketia%20Manosia%20Y%20Utiliza%20Rubia" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+          <div class="chapa-card" data-chapa="Tengo Esposa Toxica" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333;">
+            <img src="chapa-tengo-esposa-toxica.jpg" alt="Tengo Esposa Toxica" style="width:100%; height:auto; display:block;">
+            <div style="padding:12px;"><div style="font-weight:700; font-size:1.05rem; margin-bottom:10px;">Tengo Esposa Toxica</div>
+              <a class="btn-chapa-wa" href="https://wa.me/5356190396?text=Buenas%20tardes%20me%20interesa%20una%20chapa%20modelo%20Tengo%20Esposa%20Toxica" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:#25D366;color:white;font-size:0.95rem;font-weight:700;border:none;border-radius:12px;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,0.35);">Pedir este modelo por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <a class="btn-whatsapp" id="btn-wa" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Escribir por WhatsApp
@@ -721,26 +875,41 @@
 
       const opcionesTapas = document.getElementById('opciones-tapas');
       const opcionesCaretas = document.getElementById('opciones-caretas');
+      const opcionesChapas = document.getElementById('opciones-chapas');
 
       if (item.id === 2) {
         // Flujo especial Tapas
         opcionesTapas.style.display = 'block';
         opcionesCaretas.style.display = 'none';
+        opcionesChapas.style.display = 'none';
         btnWaNormal.style.display = 'none';
         resetTapasFlow();
       } else if (item.id === 4) {
         // Flujo Caretas
         opcionesTapas.style.display = 'none';
         opcionesCaretas.style.display = 'block';
+        opcionesChapas.style.display = 'none';
         btnWaNormal.style.display = 'none';
         modalImg.style.display = 'flex';
         modalImg.innerHTML = `<img src="caretas.jpg" alt="Caretas de Acrílico">`;
         document.getElementById('caretas-lista-modelos').style.display = 'block';
         document.getElementById('caretas-flujo-unico').style.display = 'none';
+      } else if (item.id === 3) {
+        // Flujo Chapas - Nuestros Diseños + botón WA general siempre visible
+        opcionesTapas.style.display = 'none';
+        opcionesCaretas.style.display = 'none';
+        opcionesChapas.style.display = 'block';
+        btnWaNormal.style.display = 'flex';
+        modalImg.style.display = 'flex';
+        modalImg.innerHTML = `<img src="chapas.jpg" alt="Chapas Personalizadas">`;
+        const mensajeGeneral = `Buenas tardes, me interesa un pedido personalizado de *Chapas*`;
+        btnWaNormal.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(mensajeGeneral)}`;
+        btnWaNormal.innerHTML = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedido personalizado`;
       } else {
         // Productos/servicios normales
         opcionesTapas.style.display = 'none';
         opcionesCaretas.style.display = 'none';
+        opcionesChapas.style.display = 'none';
         btnWaNormal.style.display = 'flex';
         modalImg.style.display = 'flex';
         const tieneFoto = item.foto && item.foto.trim() !== "";
@@ -753,6 +922,7 @@
           ? `Hola! Me interesa hacer un pedido de *${item.nombre}*`
           : `Hola! Me interesa el servicio de *${item.nombre}*`;
         btnWaNormal.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(mensaje)}`;
+        btnWaNormal.innerHTML = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Escribir por WhatsApp`;
       }
 
       window.itemActual = item;
@@ -927,6 +1097,7 @@
         actualizarResumenCareta();
       }
     });
+
   </script>
 </body>
 </html>
