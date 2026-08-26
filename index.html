@@ -524,7 +524,7 @@
           <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px; font-weight:600;">Elige un modelo:</p>
           <div style="display:grid; grid-template-columns: 1fr; gap:12px;">
             <div class="careta-card" data-careta="Unico" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:2px solid #333; cursor:pointer;">
-              <img src="unico.jpg" alt="Unico" style="width:100%; height:120px; object-fit:cover; display:block;">
+              <img src="00_unico_original_negro_rojo.jpg" alt="Unico" style="width:100%; height:120px; object-fit:cover; display:block;">
               <div style="padding:10px; font-weight:700; font-size:1rem;">Unico</div>
               <div style="padding:0 10px 10px; font-size:0.8rem; color:var(--accent);">60.000 al detalle | 45.000 por cantidad</div>
             </div>
@@ -545,6 +545,7 @@
 
         <!-- Flujo de colores solo para Unico (sin medidas) -->
         <div id="caretas-flujo-unico" style="display:none;">
+          <div style="margin-bottom:12px; padding:12px 14px; border-radius:12px; background:linear-gradient(135deg, rgba(230,57,70,0.22), rgba(255,183,3,0.18)); border:1px solid var(--accent); color:white; font-size:0.9rem; font-weight:700; text-align:center; box-shadow:0 4px 14px rgba(255,183,3,0.12);">✨ Selecciona un color para ver una imagen de previsualización</div>
           <button id="btn-careta-color" style="width:100%; padding:14px; margin-bottom:16px; border:none; border-radius:12px; background:var(--primary); color:white; font-weight:700; font-size:1rem; cursor:pointer;">
             Seleccionar color
           </button>
@@ -584,7 +585,7 @@
               <p id="careta-resumen-texto" style="font-size:0.95rem; line-height:1.5; margin:0;"></p>
             </div>
             <a id="btn-careta-pedido" href="#" target="_blank" rel="noopener"
-               style="display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:16px; background:#25D366; color:white; font-size:1.05rem; font-weight:700; border:none; border-radius:14px; text-decoration:none; box-shadow:0 6px 20px rgba(37,211,102,0.35);">
+               style="display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:16px; background:#25D366; color:white; font-size:1.05rem; font-weight:700; border:none; border-radius:14px; text-decoration:none; box-shadow:0 6px 20px rgba(37,211,102,0.35); position:sticky; bottom:0; z-index:20;">
               Hacer pedido
             </a>
           </div>
@@ -1123,6 +1124,12 @@
       if (medidas) {
         document.getElementById('paso-resumen').style.display = 'block';
         actualizarResumenYPedido();
+
+        // Mostrar automáticamente el botón de pedido sin tener que bajar manualmente.
+        setTimeout(() => {
+          const botonPedido = document.getElementById('btn-hacer-pedido');
+          if (botonPedido) botonPedido.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
       } else {
         document.getElementById('paso-resumen').style.display = 'none';
       }
@@ -1131,6 +1138,59 @@
     // Variables Caretas Unico
     let caretaColorFondo = '';
     let caretaColorDetalles = '';
+
+    // Mapa de previsualizaciones: "Fondo|Detalles" → archivo de imagen
+    const previewUnico = {
+      // Fondo Negro
+      "Negro|Rojo": "00_unico_original_negro_rojo.jpg",
+      "Negro|Azul": "01_unico_negro_azul.jpg",
+      "Negro|Amarillo": "02_unico_negro_amarillo.jpg",
+      "Negro|Verde": "03_unico_negro_verde.jpg",
+      "Negro|Morado": "04_unico_negro_morado.jpg",
+      "Negro|Anaranjado": "05_unico_negro_anaranjado.jpg",
+      "Negro|Blanco": "unico_01_Negro_Blanco.jpg",
+      // Fondo Blanco
+      "Blanco|Negro": "unico_02_Blanco_Negro.jpg",
+      "Blanco|Rojo": "unico_03_Blanco_Rojo.jpg",
+      "Blanco|Azul": "unico_04_Blanco_Azul.jpg",
+      "Blanco|Amarillo": "unico_05_Blanco_Amarillo.jpg",
+      "Blanco|Verde": "unico_06_Blanco_Verde.jpg",
+      "Blanco|Morado": "unico_07_Blanco_Morado.jpg",
+      "Blanco|Anaranjado": "unico_08_Blanco_Anaranjado.jpg",
+      // Fondo Rojo
+      "Rojo|Negro": "unico_9rojo_negro.jpg",
+      "Rojo|Blanco": "unico_10rojo_blanco.jpg",
+      "Rojo|Azul": "unico_11rojo_azul.jpg",
+      "Rojo|Amarillo": "unico_12rojo_amarillo.jpg",
+      "Rojo|Verde": "unico_13rojo_verde.jpg",
+      "Rojo|Morado": "unico_14rojo_morado.jpg",
+      "Rojo|Anaranjado": "unico_15rojo_anaranjado.jpg",
+      // Fondo Azul
+      "Azul|Negro": "unico_16azul_negro.jpg",
+      "Azul|Blanco": "unico_17azulblanco.jpg",
+      "Azul|Rojo": "unico_18azulrojo.jpg",
+      "Azul|Amarillo": "unico_19azulamarillo.jpg",
+      "Azul|Verde": "unico_20azulverde.jpg",
+      "Azul|Morado": "unico_21azulmorado.jpg",
+      "Azul|Anaranjado": "unico_22azulanaranjado.jpg",
+      // Fondo Amarillo
+      "Amarillo|Negro": "unico_23amarillonegro.jpg",
+      "Amarillo|Blanco": "unico_24amarilloblanco.jpg"
+    };
+
+    function actualizarPreviewCareta() {
+      const modalImg = document.getElementById('modal-img');
+      if (!caretaColorFondo || !caretaColorDetalles) return;
+      const key = `${caretaColorFondo}|${caretaColorDetalles}`;
+      const foto = previewUnico[key];
+      if (foto) {
+        modalImg.style.display = 'flex';
+        modalImg.innerHTML = `<img src="${foto}" alt="Unico ${caretaColorFondo} ${caretaColorDetalles}" style="width:100%;height:100%;object-fit:contain;background:#fff;">`;
+      } else {
+        // Sin foto exacta → se mantiene la última o se muestra placeholder
+        modalImg.innerHTML = `<div class="placeholder">Previsualización no disponible para esta combinación<br><small>${caretaColorFondo} + ${caretaColorDetalles}</small></div>`;
+      }
+    }
 
     function actualizarResumenCareta() {
       const resumen = document.getElementById('careta-resumen-texto');
@@ -1153,7 +1213,7 @@
           // Mostrar foto grande y flujo de colores
           const modalImg = document.getElementById('modal-img');
           modalImg.style.display = 'flex';
-          modalImg.innerHTML = `<img src="unico.jpg" alt="Unico">`;
+          modalImg.innerHTML = `<img src="00_unico_original_negro_rojo.jpg" alt="Unico" style="width:100%;height:100%;object-fit:contain;background:#fff;">`;
           document.getElementById('caretas-lista-modelos').style.display = 'none';
           document.getElementById('caretas-flujo-unico').style.display = 'block';
           document.getElementById('btn-careta-color').style.display = 'block';
@@ -1186,6 +1246,7 @@
       document.getElementById('careta-paso-resumen').style.display = 'none';
       caretaColorDetalles = '';
       if (document.getElementById('careta-select-detalles')) document.getElementById('careta-select-detalles').value = '';
+      // No mostrar preview todavía (faltan los detalles)
     });
 
     document.getElementById('careta-select-detalles').addEventListener('change', function() {
@@ -1193,6 +1254,13 @@
       if (caretaColorDetalles) {
         document.getElementById('careta-paso-resumen').style.display = 'block';
         actualizarResumenCareta();
+        actualizarPreviewCareta(); // ← Aquí se muestra la foto de previsualización
+
+        // Mostrar automáticamente el botón de pedido sin tener que bajar manualmente.
+        setTimeout(() => {
+          const botonPedido = document.getElementById('btn-careta-pedido');
+          if (botonPedido) botonPedido.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
       }
     });
 
