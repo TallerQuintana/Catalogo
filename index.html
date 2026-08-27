@@ -918,6 +918,7 @@
       if (document.getElementById('select-fondo')) document.getElementById('select-fondo').value = '';
       if (document.getElementById('select-detalles')) document.getElementById('select-detalles').value = '';
       if (document.getElementById('input-medidas')) document.getElementById('input-medidas').value = '';
+      actualizarOpcionesColoresTapas();
       // Mostrar la foto general de varias tapas al abrir el apartado
       const modalImg = document.getElementById('modal-img');
       modalImg.style.display = 'flex';
@@ -1091,13 +1092,45 @@
         if (document.getElementById('select-fondo')) document.getElementById('select-fondo').value = '';
         if (document.getElementById('select-detalles')) document.getElementById('select-detalles').value = '';
         if (document.getElementById('input-medidas')) document.getElementById('input-medidas').value = '';
+        actualizarOpcionesColoresTapas();
       }
     });
+
+    // Evita seleccionar el mismo color en fondo y detalles (Tapas)
+    function actualizarOpcionesColoresTapas() {
+      const selectFondo = document.getElementById('select-fondo');
+      const selectDetalles = document.getElementById('select-detalles');
+      if (!selectFondo || !selectDetalles) return;
+
+      const valorFondo = selectFondo.value;
+      const valorDetalles = selectDetalles.value;
+
+      // Habilitar todas las opciones primero
+      Array.from(selectFondo.options).forEach(opt => {
+        opt.disabled = false;
+      });
+      Array.from(selectDetalles.options).forEach(opt => {
+        opt.disabled = false;
+      });
+
+      // Deshabilitar en el otro select el color ya elegido (excepto vacío y "Otro")
+      if (valorFondo && valorFondo !== 'Otro') {
+        Array.from(selectDetalles.options).forEach(opt => {
+          if (opt.value === valorFondo) opt.disabled = true;
+        });
+      }
+      if (valorDetalles && valorDetalles !== 'Otro') {
+        Array.from(selectFondo.options).forEach(opt => {
+          if (opt.value === valorDetalles) opt.disabled = true;
+        });
+      }
+    }
 
     // 2. Click en "Seleccionar color" → mostrar color de fondo
     document.getElementById('btn-seleccionar-color').addEventListener('click', () => {
       document.getElementById('paso-fondo').style.display = 'block';
       document.getElementById('btn-seleccionar-color').style.display = 'none';
+      actualizarOpcionesColoresTapas();
     });
 
     // 3. Cuando elige color de fondo → mostrar color de detalles
@@ -1112,11 +1145,13 @@
       medidas = '';
       if (document.getElementById('select-detalles')) document.getElementById('select-detalles').value = '';
       if (document.getElementById('input-medidas')) document.getElementById('input-medidas').value = '';
+      actualizarOpcionesColoresTapas();
     });
 
     // 4. Cuando elige color de detalles → mostrar medidas
     document.getElementById('select-detalles').addEventListener('change', function() {
       colorDetalles = this.value;
+      actualizarOpcionesColoresTapas();
       if (colorDetalles) {
         document.getElementById('paso-medidas').style.display = 'block';
       }
@@ -1182,7 +1217,25 @@
       "Azul|Anaranjado": "unico_22azulanaranjado.jpg",
       // Fondo Amarillo
       "Amarillo|Negro": "unico_23amarillonegro.jpg",
-      "Amarillo|Blanco": "unico_24amarilloblanco.jpg"
+      "Amarillo|Blanco": "unico_24amarilloblanco.jpg",
+      "Amarillo|Rojo": "unico_25amarillorojo.jpg",
+      "Amarillo|Azul": "unico_26amarilloazul.jpg",
+      "Amarillo|Verde": "unico_27amarilloverde.jpg",
+      "Amarillo|Morado": "unico_28amarillomorado.jpg",
+      "Amarillo|Anaranjado": "unico_29amarilloanaranjado.jpg",
+      // Fondo Verde
+      "Verde|Negro": "unico_30verdenegro.jpg",
+      "Verde|Blanco": "unico_31verdeblanco.jpg",
+      "Verde|Rojo": "unico_32verderojo.jpg",
+      "Verde|Azul": "unico_33verdeazul.jpg",
+      "Verde|Amarillo": "unico_34verdeamarillo.jpg",
+      "Verde|Morado": "unico_35verdemorado.jpg",
+      "Verde|Anaranjado": "unico_36verdeanaranjado.jpg",
+      // Fondo Morado
+      "Morado|Negro": "unico_37moradonegro.jpg",
+      "Morado|Amarillo": "unico_morado_amarillo.jpg",
+      "Morado|Verde": "unico_morado_verde.jpg",
+      "Morado|Anaranjado": "unico_morado_anaranjado.jpg"
     };
 
     function actualizarPreviewCareta() {
@@ -1231,6 +1284,7 @@
           caretaColorDetalles = '';
           if (document.getElementById('careta-select-fondo')) document.getElementById('careta-select-fondo').value = '';
           if (document.getElementById('careta-select-detalles')) document.getElementById('careta-select-detalles').value = '';
+          actualizarOpcionesColoresCareta();
         } else {
           // Murazaki / Nippon → WhatsApp directo
           const mensaje = `Hola! Me interesa la careta de acrílico modelo *${modelo}*. Vi que está en proceso. Tengo una idea para el diseño / quiero que me notifiquen cuando esté lista.`;
@@ -1240,9 +1294,40 @@
     });
 
     // Flujo colores Unico
+    // Evita seleccionar el mismo color en fondo y detalles
+    function actualizarOpcionesColoresCareta() {
+      const selectFondo = document.getElementById('careta-select-fondo');
+      const selectDetalles = document.getElementById('careta-select-detalles');
+      if (!selectFondo || !selectDetalles) return;
+
+      const valorFondo = selectFondo.value;
+      const valorDetalles = selectDetalles.value;
+
+      // Habilitar todas las opciones primero
+      Array.from(selectFondo.options).forEach(opt => {
+        opt.disabled = false;
+      });
+      Array.from(selectDetalles.options).forEach(opt => {
+        opt.disabled = false;
+      });
+
+      // Deshabilitar en el otro select el color ya elegido (excepto vacío y "Otro")
+      if (valorFondo && valorFondo !== 'Otro') {
+        Array.from(selectDetalles.options).forEach(opt => {
+          if (opt.value === valorFondo) opt.disabled = true;
+        });
+      }
+      if (valorDetalles && valorDetalles !== 'Otro') {
+        Array.from(selectFondo.options).forEach(opt => {
+          if (opt.value === valorDetalles) opt.disabled = true;
+        });
+      }
+    }
+
     document.getElementById('btn-careta-color').addEventListener('click', () => {
       document.getElementById('careta-paso-fondo').style.display = 'block';
       document.getElementById('btn-careta-color').style.display = 'none';
+      actualizarOpcionesColoresCareta();
     });
 
     document.getElementById('careta-select-fondo').addEventListener('change', function() {
@@ -1252,12 +1337,16 @@
       }
       document.getElementById('careta-paso-resumen').style.display = 'none';
       caretaColorDetalles = '';
-      if (document.getElementById('careta-select-detalles')) document.getElementById('careta-select-detalles').value = '';
+      if (document.getElementById('careta-select-detalles')) {
+        document.getElementById('careta-select-detalles').value = '';
+      }
+      actualizarOpcionesColoresCareta();
       // No mostrar preview todavía (faltan los detalles)
     });
 
     document.getElementById('careta-select-detalles').addEventListener('change', function() {
       caretaColorDetalles = this.value;
+      actualizarOpcionesColoresCareta();
       if (caretaColorDetalles) {
         document.getElementById('careta-paso-resumen').style.display = 'block';
         actualizarResumenCareta();
